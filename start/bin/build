@@ -1,0 +1,17 @@
+#!/bin/bash
+
+set -eo pipefail
+
+echo "---> Test"
+
+# 1. GET ARGS
+layersdir=$1
+
+cat > "$layersdir/launch.toml" <<EOL
+# our web process
+[[processes]]
+type = "web"
+command = "echo"
+direct = false
+
+EOL
